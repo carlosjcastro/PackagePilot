@@ -17,6 +17,7 @@ const Footer: React.FC = () => {
             <div className="footer-title">Empresa</div>
             <Link to="/aboutus" className="footer-link">About Us</Link>
             <Link to="/team" className="footer-link">Team</Link>
+            <Link to="/shipments" className="footer-link">Shipments</Link>
           </div>
           {/* <div className="footer-item">
             <div className="footer-title">Productos</div>
@@ -42,10 +43,10 @@ const Footer: React.FC = () => {
           <div className="footer-item">
   <div className="footer-title">Redes Sociales</div>
   <span className="social-link">
-    <a href="https://github.com" className="footer-link" target="_blank" rel="noopener noreferrer">GitHub<ArrowForward /></a>
+    <a href="https://github.com/PackagePilot" className="footer-link" target="_blank" rel="noopener noreferrer">GitHub<ArrowForward /></a>
   </span>
   <span className="social-link">
-    <a href="https://linkedin.com" className="footer-link" target="_blank" rel="noopener noreferrer">LinkedIn<ArrowForward /></a>
+    <a href="https://www.linkedin.com/company/packagepilot/" className="footer-link" target="_blank" rel="noopener noreferrer">LinkedIn<ArrowForward /></a>
   </span>
 </div>
         </div>

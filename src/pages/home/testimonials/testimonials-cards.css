@@ -1,0 +1,66 @@
+.testimonials-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+  
+  .testimonial {
+    background-color: #051220;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 0 10px 50px;
+    width: calc(33.33% - 60px);
+    text-align: center;
+  }
+  
+  .testimonial:hover {
+    outline: 2px solid #33BBCF;
+    background-color: #04101d;
+  }
+  
+  .testimonial img {
+    border-radius: 50%;
+    height: 120px;
+    width: 120px;
+    margin-bottom: 15px;
+    object-fit: cover;
+    object-position: center;
+    image-rendering: auto;
+    border: none;
+  }
+  
+  .testimonial h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    color: #fff;
+  }
+  
+  .testimonial p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #cfcfcf;
+    font-style: oblique;
+  }
+  
+  /* Media queries para hacer responsivo el diseño */
+  @media (max-width: 1200px) {
+    .testimonial {
+      width: calc(50% - 40px); /* Dos tarjetas por fila en pantallas medianas */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .testimonial {
+      width: calc(100% - 20px); /* Una tarjeta por fila en pantallas pequeñas */
+    }
+  
+    .testimonial h3 {
+      font-size: 1.5rem; /* Ajuste del tamaño del texto en pantallas pequeñas */
+    }
+  
+    .testimonial p {
+      font-size: 1rem; /* Ajuste del tamaño del texto en pantallas pequeñas */
+    }
+  }
+  

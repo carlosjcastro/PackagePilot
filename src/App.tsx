@@ -9,6 +9,7 @@ import Footer from './components/footer/Footer';
 import LogIn from './pages/log-in/LogIn';
 import SignUp from './pages/sign-up/SignUp';
 import Home from './pages/home/Home';
+import Loader from './components/loader-screen/Loader';
 
 const ScrollToTop: React.FC = () => {
   const { pathname } = useLocation();
@@ -34,9 +35,9 @@ const AppContent: React.FC = () => {
       {!hideElements && <Menu />}
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/aboutus" element={<About />} />
+        <Route path="/us" element={<About />} />
         <Route path="/team" element={<Team />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/shipments" element={<Contact />} />
         <Route path="/login" element={<LogIn setHideElements={setHideElements} />} />
         <Route path="/signup" element={<SignUp setHideElements={setHideElements} />} />
       </Routes>
@@ -46,6 +47,21 @@ const AppContent: React.FC = () => {
 };
 
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 4000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <Router>
       <ScrollToTop />

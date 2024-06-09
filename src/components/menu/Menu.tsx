@@ -54,7 +54,7 @@ const Menu: React.FC = () => {
             </a>
             {isSubmenuOpen && (
               <div className="sub-menu">
-                <NavLink to="/aboutus" activeclassname="active" className="nav-link" onClick={toggleMenu}>
+                <NavLink to="/us" activeclassname="active" className="nav-link" onClick={toggleMenu}>
                   {t('header.menu-aboutUs')}
                 </NavLink>
                 <NavLink to="/team" activeclassname="active" className="nav-link" onClick={toggleMenu}>
@@ -63,7 +63,7 @@ const Menu: React.FC = () => {
               </div>
             )}
           </div>
-          <NavLink to="/contact" activeclassname="active" className="nav-link" onClick={toggleMenu}>
+          <NavLink to="/shipments" activeclassname="active" className="nav-link" onClick={toggleMenu}>
             {t('header.menu-contact')}
           </NavLink>
         </nav>

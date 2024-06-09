@@ -8,6 +8,17 @@
   "menu-contact": "Shipments"
 },
 
+"home":{
+  "hero-description": "Sailing together towards a future of more efficient shipments: Connecting ideas, resources, and talents to build a better tomorrow.",
+  "whatweprovide-title": "What We Provide?",
+  "wwp-access-title": "Centralized Access",
+  "wwp-access-text": "Efficiently connect teams and ideas to foster innovation.",
+  "wwp-security-title": "100% Security",
+  "wwp-security-text": "Expand your reach and influence within our extensive network.",
+  "wwp-intelligence-title": "Intelligent Analysis",
+  "wwp-intelligence-text": "Forge meaningful relationships that drive mutual success."
+},
+
 "about":{
     "about-title": "Why PackagePilot?",
     "about-mission-title": "Our Mission",
@@ -27,9 +38,7 @@
         "about-value-card-customerfocus": "Orientación al Cliente",
         "about-value-card-customerfocus-text": "We put the customer at the center of everything we do, carefully listening to their needs and desires to deliver innovative, user-centered solutions.",
         "about-value-card-responsibility": "Responsabilidad",
-        "about-value-card-responsibility-text": "We take ownership of our actions and decisions, showing a steadfast commitment to the team's success and the delivery of outstanding results.",
-    "about-clients-title": "Our Clients",
-    "about-clients-text": ""
+        "about-value-card-responsibility-text": "We take ownership of our actions and decisions, showing a steadfast commitment to the team's success and the delivery of outstanding results."
 },
 
 "team":{

@@ -60,7 +60,7 @@
     color: #33BBCF;
   }
   
-.card:hover{
+  .card:hover{
     outline: 2px solid #33BBCF;
     background-color: #04101d;
 }
@@ -94,6 +94,7 @@
   .btn-gs{
     border: none;
     background-color: #33BBCF;
+    text-decoration: none;
   }
 
   .btn-gs:hover{
@@ -103,6 +104,7 @@
   .btn-tu{
     background: none;
     border: 2px solid #33BBCF;
+    text-decoration: none;
   }
 
   .btn-tu:hover{
@@ -112,6 +114,24 @@
 /* Section 2 */
 .what-we-provide h2{
     font-weight: 800;
-    font-size: 2rem;
+    font-size: 3rem;
     text-align: center;
+}
+
+.testimonials h2{
+  font-weight: 800;
+  font-size: 3rem;
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .card {
+    width: calc(50% - 40px);
+  }
+}
+
+@media (max-width: 768px) {
+  .card {
+    width: calc(100% - 20px);
+  }
 }
