@@ -1,0 +1,18 @@
+.custom-button-cta {
+    padding: 1rem 1.5rem; /* py-4 px-6 */
+    font-family: 'Poppins', sans-serif; /* font-poppins */
+    font-weight: 500; /* font-medium */
+    font-size: 18px; /* text-[18px] */
+    color: var(--text-primary); /* text-primary */
+    background: var(--blue-gradient); /* bg-blue-gradient */
+    border-radius: 10px; /* rounded-[10px] */
+    outline: none;
+    cursor: pointer;
+  }
+  
+  /* Example variables (adjust as needed) */
+  :root {
+    --text-primary: #ffffff; /* Example text primary color */
+    --blue-gradient: linear-gradient(90deg, rgba(29,78,216,1) 0%, rgba(147,197,253,1) 100%); /* Example blue gradient */
+  }
+  

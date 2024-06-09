@@ -1,0 +1,48 @@
+{
+    "header":
+    {
+      "menu-home": "Inicio",
+      "menu-about": "Sobre",
+      "menu-aboutUs": "Nosotros",
+      "menu-ourTeam": "El equipo",
+      "menu-features": "Features",
+      "menu-pricing": "Pricing",
+      "menu-contact": "Contacto"
+    },
+
+    "about":{
+        "about-title": "¿Por qué trabajar con nosotros?",
+        "about-mission-title": "Nuestra Misión",
+        "about-mission-text": "",
+        "about-vision-title": "Nuestra Visión",
+        "about-vision-text": "",
+        "about-values-title": "Nuestros Valores",
+        "about-values-text": "",
+        "about-clients-title": "Nuestros Clientes",
+        "about-clients-text": ""
+    },
+
+    "team":{
+      "about-team-title": "Nuestro talentoso equipo",
+      "about-team-text": "Conoce a los miembros de nuestro equipo que hacen posible todo lo que hacemos."
+    },
+
+    "contact":{
+      "contact-title": "Empecemos",
+      "contact-title-form": "Contáctanos ahora!",
+      "contact-label-name": "Nombre",
+      "contact-label-email": "Correo electrónico",
+      "contact-label-phone": "Número de teléfono",
+      "contact-label-subject": "Buscando",
+      "contact-subject":{
+        "contact-general": "General",
+        "contact-product": "Producto",
+        "contact-service": "Servicio"
+      },
+      "contact-label-message": "Mensaje",
+      "contact-btn-send": "Enviar",
+      "errors-required": "Este campo es obligatorio."
+      
+    }
+    
+    }

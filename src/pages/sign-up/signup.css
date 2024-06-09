@@ -1,0 +1,216 @@
+.signup-container {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    width: 100vw;
+}
+
+.signup-left, .signup-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-left {
+    background-color: #010b15;
+    align-items: center;
+}
+
+.signup-right {
+    background-color: #010b15;
+}
+
+.signup-box {
+    width: 100%;
+    padding: 10px;
+    border-radius: 0px;
+    max-width: 500px;
+    text-align: center;
+}
+
+.signup-box h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    margin: 1rem;
+}
+
+.signup-box .signup-text {
+    margin-bottom: 2rem;
+}
+
+.signup-input .MuiInputBase-input {
+    background-color: #03101c;
+    color: #e5e5e5;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.signup-input .MuiOutlinedInput-notchedOutline {
+    border-color: #03101c;
+}
+
+.signup-input:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #33BBCF;
+}
+
+.signup-input .MuiFormLabel-root {
+    color: #e5e5e5;
+}
+
+.signup-input .MuiFormLabel-root.Mui-focused {
+    color: #33BBCF;
+}
+
+.signup-button {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+    background-color: #33BBCF;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    margin: 0 auto 20px auto;
+}
+
+.signup-button:hover {
+    background-color: #2ca1b3;
+}
+
+.signup-btn-sn {
+    background: none;
+    font-weight: 500;
+    border: 2px solid #0d131b;
+}
+
+.signup-btn-sn:hover {
+    background-color: #e5e5e5;
+    color: #000000;
+}
+
+.or-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1rem;
+}
+
+.or-divider {
+    height: 1px;
+    background-color: #041f37;
+    flex-grow: 1;
+    max-width: 50%;
+    margin: 0 10px;
+}
+
+.or-text {
+    color: #e5e5e5;
+}
+
+.signup-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.MuiButton-root.signup-button, 
+.custom-button {
+    background: none;
+    color: white;
+    border: 2px solid #0d131b;
+    padding: 20px 90px;
+    cursor: pointer;
+    border-radius: 10px;
+    background-color: #33BBCF;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+}
+
+.MuiButton-root.signup-button:hover, 
+.custom-button:hover {
+    background-color: #2ca1b3;
+    color: #010b15;
+}
+
+.MuiFormControl-root {
+    margin-bottom: 30px !important;
+    width: 100%;
+}
+
+.input-white .MuiOutlinedInput-root {
+    color:  #e5e5e5;
+    border-color: white;
+}
+
+.input-white .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+    border-color: white;
+}
+
+.input-white .MuiInputLabel-outlined {
+    color:  #e5e5e5;
+}
+
+.input-white .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #33BBCF;
+}
+
+.input-white .MuiOutlinedInput-root {
+    color:  #e5e5e5;
+    border-color: white;
+}
+
+.input-white .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
+    border-color: white;
+}
+
+.input-white .MuiInputLabel-outlined {
+    color:  #e5e5e5;
+}
+
+.input-white .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
+    border-color: #e5e5e5;
+}
+
+/* Media Queries para responsive design */
+@media (max-width: 768px) {
+    .signup-container {
+        flex-direction: column;
+    }
+
+    .signup-left, .signup-right {
+        width: 100%;
+    }
+
+    .signup-box {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    .signup-button {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .or-divider {
+        max-width: 40%;
+    }
+}
+
+@media (max-width: 480px) {
+    .signup-box {
+        padding: 15px;
+    }
+
+    .signup-button {
+        padding: 10px;
+    }
+
+    .or-divider {
+        max-width: 50%;
+    }
+}

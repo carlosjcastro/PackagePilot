@@ -1,0 +1,117 @@
+.welcome-web {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0px;
+    border-radius: 20px;
+    margin-bottom: 4rem;
+  }
+  
+  .welcome-content,
+  .image-content {
+    flex: 1;
+  }
+  
+  .image-content img {
+    width: 100%;
+  }
+
+  .welcome-web h1{
+    font-size: 5rem;
+    font-weight: 900;
+  }
+  
+  .welcome-web p{
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .text-collab{
+    font-weight: 700;
+    color: #33BBCF;
+  }
+
+  .image-content img{
+    height: auto;
+    width: 100%;
+  }
+
+
+  .cards-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+  
+  .card {
+    background-color: #051220;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 0 10px 50px;
+    width: calc(33.33% - 60px);
+    text-align: center;
+  }
+
+  .card i{
+    margin: 10px;
+    font-size: 40px;
+    color: #33BBCF;
+  }
+  
+.card:hover{
+    outline: 2px solid #33BBCF;
+    background-color: #04101d;
+}
+
+  .card h3 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    
+  }
+  
+  .card p {
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .buttons-container{
+    margin-top: 2rem;
+  }
+  
+  .button-get-started,
+  .button-talk-with-us {
+    padding: 20px 50px;
+    margin: 0 10px;
+    font-size: 16px;
+    margin-top: 2rem;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-gs{
+    border: none;
+    background-color: #33BBCF;
+  }
+
+  .btn-gs:hover{
+    background-color: #2ca1b3;
+  }
+
+  .btn-tu{
+    background: none;
+    border: 2px solid #33BBCF;
+  }
+
+  .btn-tu:hover{
+    background-color: #33BBCF ;
+  }
+
+/* Section 2 */
+.what-we-provide h2{
+    font-weight: 800;
+    font-size: 2rem;
+    text-align: center;
+}

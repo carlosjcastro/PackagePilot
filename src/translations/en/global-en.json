@@ -1,0 +1,46 @@
+{
+"header":
+{
+  "menu-home": "Home",
+  "menu-about": "About",
+  "menu-aboutUs": "Us",
+  "menu-ourTeam": "Our Team",
+  "menu-features": "Features",
+  "menu-pricing": "Pricing",
+  "menu-contact": "Contact"
+},
+
+"about":{
+    "about-title": "Why Partner with Us?",
+    "about-mission-title": "Our Mission",
+    "about-mission-text": "",
+    "about-vision-title": "Our Vision",
+    "about-vision-text": "",
+    "about-values-title": "Our Values",
+    "about-values-text": "",
+    "about-clients-title": "Our Clients",
+    "about-clients-text": ""
+},
+
+"team":{
+  "about-team-title": "Our Talented Crew",
+  "about-team-text": "Meet the members of our team who make everything we do possible."
+},
+
+"contact":{
+  "contact-title": "Let's Get Started!",
+  "contact-title-form": "Contact Us Now!",
+  "contact-label-name": "Name",
+  "contact-label-email": "Email",
+  "contact-label-phone": "Phone Number",
+  "contact-subject":{
+    "contact-general": "General",
+    "contact-product": "Product",
+    "contact-service": "Service"
+  },
+  "contact-label-subject": "Looking for",
+  "contact-label-message": "Message",
+  "contact-btn-send": "Send",
+  "errors-required": "This field is required."
+  }
+}

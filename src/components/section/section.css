@@ -1,0 +1,48 @@
+/* section.css */
+
+/* Estilos para el contenedor principal */
+.section-container {
+    position: relative;
+  }
+  
+  /* Estilos para las líneas verticales */
+  .line-vertical {
+    position: absolute;
+    width: 0.25rem;
+    height: 100%;
+    background-color: #000; /* Color de las líneas */
+    pointer-events: none;
+  }
+  
+  /* Estilos para la línea vertical izquierda */
+  .line-vertical-left {
+    top: 0;
+    left: 5rem; /* Ajustar según sea necesario */
+  }
+  
+  /* Estilos para la línea vertical derecha */
+  .line-vertical-right {
+    top: 0;
+    right: 5rem; /* Ajustar según sea necesario */
+  }
+  
+  /* Estilos para la línea horizontal superior */
+  .line-horizontal {
+    position: absolute;
+    height: 0.25rem;
+    background-color: #000; /* Color de la línea */
+    pointer-events: none;
+  }
+  
+  /* Estilos para la línea horizontal superior */
+  .line-horizontal-top {
+    top: 0;
+    left: 7.5rem; /* Ajustar según sea necesario */
+    right: 7.5rem; /* Ajustar según sea necesario */
+  }
+  
+  /* Estilos opcionales para el SVG de fondo */
+  .section-svg {
+    /* Agrega estilos según sea necesario */
+  }
+  

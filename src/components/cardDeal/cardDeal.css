@@ -1,0 +1,43 @@
+.section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 2rem;
+  }
+  
+  .section-info {
+    flex: 1;
+    padding-right: 2rem;
+  }
+  
+  .heading2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+  }
+  
+  .paragraph {
+    max-width: 470px;
+    margin-top: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  
+  .section-img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .billing-image {
+    width: 90%;
+    height: 90%;
+    border: 4px solid #7de7eb; /* border-[#7de7eb] */
+    border-radius: 50%; /* rounded-full */
+  }
+  
+  .mt-10 {
+    margin-top: 2.5rem;
+  }
+  

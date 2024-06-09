@@ -1,0 +1,32 @@
+.stats-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 20px; /* sm:mb-20 mb-6 */
+  }
+  
+  .stat-item {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 10px;
+  }
+  
+  .stat-value {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600; /* font-semibold */
+    font-size: 30.89px; /* text-[30.89px] */
+    line-height: 43.16px; /* leading-[43.16px] */
+    color: #ffffff; /* text-white */
+  }
+  
+  .stat-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: normal; /* font-normal */
+    font-size: 15.45px; /* text-[15.45px] */
+    line-height: 21.58px; /* leading-[21.58px] */
+    color: var(--text-gradient); /* text-gradient */
+    text-transform: uppercase;
+    margin-left: 0.75rem; /* ml-3 */
+  }
+  

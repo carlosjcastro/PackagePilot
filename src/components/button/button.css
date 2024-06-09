@@ -1,0 +1,19 @@
+.custom-button-add {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    font-weight: 500;
+    font-size: 18px;
+    color: #e5e5e5;
+    background: #33BBCF;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .custom-button-add:hover{
+    background: #2ca1b3;
+  }
+  

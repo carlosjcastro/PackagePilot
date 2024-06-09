@@ -1,0 +1,84 @@
+.section {
+  display: flex;
+  align-items: center;
+  padding: 4rem 2rem;
+  background: none;
+}
+
+.section-info {
+  flex: 1;
+  margin-right: 2rem;
+}
+
+.section-img {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: 1.5rem;
+}
+
+.feature-card {
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  border-radius: 20px;
+  background-color: #2d2d2d;
+  max-width: 300px;
+  width: 100%;
+}
+
+.icon-container {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2d2d2d;
+}
+
+.icon {
+  width: 50%;
+  height: 50%;
+  object-fit: contain;
+}
+
+.feature-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.75rem;
+}
+
+.feature-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: white;
+  line-height: 23.4px;
+  margin-bottom: 0.25rem;
+}
+
+.feature-description {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #d1d1d1;
+  line-height: 24px;
+}
+
+.heading2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.paragraph {
+  margin-top: 1.25rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.mt-10 {
+  margin-top: 2.5rem;
+}
