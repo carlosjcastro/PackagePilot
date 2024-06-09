@@ -1,21 +1,27 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './about.css';
 import people1 from '../../assets/img/people-1.svg';
 import people2 from '../../assets/img/people-2.svg';
-// import computer1 from '../../assets/img/computer-1.svg';
+import rocket from '../../assets/icons/rocket.svg';
 import responsibility from '../../assets/icons/responsibility.svg';
-import cf from '../../assets/logos/cf.png';
-import microsoft from '../../assets/logos/microsoft.png';
+import medal from '../../assets/icons/medal.svg'
+import collaboration from '../../assets/icons/collaboration.svg';
+import trust from '../../assets/icons/trust.svg';
+import client from '../../assets/icons/client.svg';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
+interface ValueData {
+  text: string;
+  icon: string;
+  shortContent: string;
+}
 
 interface SectionData {
   title: string;
   content: string;
+  values?: ValueData[];
   images?: string[];
-  values?: string[];
-  icons?: string[];
 }
 
 const sectionVariants = {
@@ -36,10 +42,7 @@ const childVariants = {
   visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
 };  
 
-
-const AboutSection: React.FC<SectionData> = ({ title, content, images, values, icons }) => {
-  const [t] = useTranslation("global");
-
+const AboutSection: React.FC<SectionData> = ({ title, content, images, values }) => {
   return (
     <motion.section 
       className="about-section"
@@ -48,13 +51,7 @@ const AboutSection: React.FC<SectionData> = ({ title, content, images, values, i
       animate="visible"
     >
       <div className="section-content">
-        {title === t('about.about-title') ? (
-          <div className="client-title-container client-title">
-            <h2>{title}</h2>
-          </div>
-        ) : (
-          <h2>{title}</h2>
-        )}
+        <h2>{title}</h2>
         <p>{content}</p>
         {values && (
           <div className="values-cards">
@@ -64,62 +61,57 @@ const AboutSection: React.FC<SectionData> = ({ title, content, images, values, i
                 key={index}
                 variants={childVariants}
               >
-                {icons && <img src={icons[index]} alt={`Icon ${index + 1}`} className="value-icon" />}
-                <p>{value}</p>
+                <img src={value.icon} alt={`Icon ${index + 1}`} className="value-icon" />
+                <p className='title-value-cards'>{value.text}</p>
+                <p>{value.shortContent}</p>
               </motion.div>
             ))}
           </div>
         )}
       </div>
       {images && images.length > 0 && (
-      <div className="images-container">
-      {images.map((image, index) => (
-        <motion.img
-          key={index}
-          src={image}
-          alt={`${title} image ${index + 1}`}
-          className={`${title === t('about.clients-title') ? 'client-image' : 'about-image'}`}
-          variants={childVariants}
-        />
-      ))}
-    </div>
+        <div className="images-container">
+          {images.map((image, index) => (
+            <motion.img
+              key={index}
+              src={image}
+              alt={`${title} image ${index + 1}`}
+              className="about-image"
+              variants={childVariants}
+            />
+          ))}
+        </div>
       )}
     </motion.section>
   );
 };
 
 const About: React.FC = () => {
-  const [t, i18n] = useTranslation("global");
+  const { t } = useTranslation("global");
 
   const sections: SectionData[] = [
     {
-      title: t('about.about-mission-title'),
-      content: t('about.about-content'),
-      images: [people1],
-    },
-    {
       title: t('about.about-vision-title'),
-      content: t('about.vision-content'),
+      content: t('about.about-vision-text'),
       images: [people2],
     },
     {
-      title: t('about.about-values-title'),
-      content: t('about.values-content'),
-      values: [
-        t('about.values-integrity'),
-        t('about.values-innovation'),
-        t('about.values-collaboration'),
-        t('about.values-responsibility'),
-        t('about.values-excellence'),
-        t('about.values-excellence'),
-      ],
-      icons: [responsibility, responsibility, responsibility, responsibility, responsibility, responsibility],
+      title: t('about.about-mission-title'),
+      content: t('about.about-mission-text'),
+      images: [people1],
     },
-    // {
-    //   title: t('about.about-clients-title'),
-    //   content: t('about.clients-content'),
-    //   images: [cf, microsoft],
-    // },
+    {
+      title: t('about.about-values-title'),
+      content: t('about.about-values-text'),
+      values: [
+        { text: t('about.about-value-card-innovation'), icon: rocket, shortContent: t('about.about-value-card-innovation-text') },
+        { text: t('about.about-value-card-trust'), icon: trust, shortContent: t('about.about-value-card-trust-text') },
+        { text: t('about.about-value-card-collaboration'), icon: collaboration, shortContent: t('about.about-value-card-collaboration-text') },
+        { text: t('about.about-value-card-excellence'), icon: medal, shortContent: t('about.about-value-card-excellence-text') },
+        { text: t('about.about-value-card-customerfocus'), icon: client, shortContent: t('about.about-value-card-customerfocus-text') },
+        { text: t('about.about-value-card-responsibility'), icon: responsibility, shortContent: t('about.about-value-card-responsibility-text') },
+      ],
+    },
   ];
   
   return (

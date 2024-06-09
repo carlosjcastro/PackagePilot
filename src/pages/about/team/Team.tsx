@@ -22,11 +22,10 @@ const members = [
     name: 'Lliliana Escobar',
     role: 'Front-end Developer',
     bio: '',
-    avatar: Liliana, // Agrega la ruta de la imagen de Lliliana aquí
+    avatar: Liliana,
     social: {
-      portfolio: 'https://cjcastrogalante.com',
       linkedin: 'https://www.linkedin.com/in/liliana-escobar-a9714a22a',
-      github: 'https://github.com/usuario_github'
+      github: 'https://github.com/Liliana993'
     }
   },
 
@@ -41,7 +40,7 @@ const Team = () => {
           className="section-title"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
+          transition={{ duration: 2 }}
         >
           {t("team.about-team-title")}
         </motion.h1>
@@ -49,7 +48,7 @@ const Team = () => {
           className="section-description"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.5 }}
+          transition={{ duration: 2, delay: 0.5 }}
         >
           {t("team.about-team-text")}
         </motion.p>

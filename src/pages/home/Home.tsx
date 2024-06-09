@@ -10,7 +10,7 @@ const Home: React.FC = () => {
         <div className="welcome-content">
           <div className="text-content">
             <h1>PackagePilot</h1>
-            <p>Building bridges of <span className='text-collab'>Collab</span>oration across a vast <span className='text-collab'>Net</span>work, uniting ideas, resources, and talents for a brighter future.</p>
+            <p>Sailing together towards a future of more efficient shipments: Connecting ideas, resources, and talents to build a better tomorrow.</p>
 
             <div className="buttons-container">
    

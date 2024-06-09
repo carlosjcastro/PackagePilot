@@ -33,7 +33,7 @@ const AppContent: React.FC = () => {
     <>
       {!hideElements && <Menu />}
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/aboutus" element={<About />} />
         <Route path="/team" element={<Team />} />
         <Route path="/contact" element={<Contact />} />

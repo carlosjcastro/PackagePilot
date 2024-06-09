@@ -206,17 +206,22 @@
     position: relative;
     padding: 40px;
     margin-top: 20px;
-    background-color: #0d131b;
+    background-color: #051220;
     border-radius: 15px;
 }
 
 .value-card:hover{
-  background-color: rgb(11, 17, 24);
+  outline: 2px solid #33BBCF;
+  background-color:#04101d;
 }
 
-.value-card p {
-    font-weight: 500;
+.title-value-cards{
+  font-weight: 800;
 }
+
+/* .value-card p {
+    font-weight: 500;
+} */
 
 .value-icon {
     height: 60px;

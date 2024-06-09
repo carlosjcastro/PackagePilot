@@ -33,6 +33,10 @@
     font-weight: bold;
 }
 
+.logo-footer{
+    height: 100px;
+}
+
 .footer-link {
     color: #c6c6c6;
     text-decoration: none;

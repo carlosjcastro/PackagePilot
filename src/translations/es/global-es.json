@@ -5,25 +5,35 @@
       "menu-about": "Sobre",
       "menu-aboutUs": "Nosotros",
       "menu-ourTeam": "El equipo",
-      "menu-features": "Features",
-      "menu-pricing": "Pricing",
-      "menu-contact": "Contacto"
+      "menu-contact": "Envíos"
     },
 
     "about":{
-        "about-title": "¿Por qué trabajar con nosotros?",
+        "about-title": "¿Por qué PackagePilot?",
         "about-mission-title": "Nuestra Misión",
-        "about-mission-text": "",
+        "about-mission-text": "Facilitar el proceso de envíos mediante el desarrollo de soluciones inteligentes que simplifiquen la interacción de los usuarios con los servicios de transporte. Nos comprometemos a brindar una experiencia de usuario excepcional, ofreciendo información precisa y relevante de manera rápida y eficiente.",
         "about-vision-title": "Nuestra Visión",
-        "about-vision-text": "",
+        "about-vision-text": "Transformar la experiencia de envíos a través de la innovación tecnológica, ofreciendo una plataforma web intuitiva y un asistente conversacional que simplifique y mejore la interacción de los usuarios con los servicios de transporte.",
         "about-values-title": "Nuestros Valores",
-        "about-values-text": "",
+        "about-values-text": "En el centro de nuestra colaboración, nos regimos por un conjunto de valores que delinean nuestra identidad y la forma en que trabajamos juntos. Estos valores son la esencia de nuestra asociación, moldean nuestras decisiones y guían nuestras interacciones, creando así un vínculo sólido y una dedicación compartida hacia nuestros clientes.",
+        "about-value-card-innovation": "Innovación",
+        "about-value-card-innovation-text": "Impulsamos la innovación constante para enfrentar desafíos con soluciones creativas y disruptivas, liderando el camino hacia un futuro tecnológico más brillante.",
+        "about-value-card-trust": "Confianza",
+        "about-value-card-trust-text": "Construimos relaciones basadas en la confianza y la transparencia, demostrando nuestro compromiso con la integridad y la ética en cada paso del proceso.",
+        "about-value-card-collaboration": "Colaboración",
+        "about-value-card-collaboration-text": "Fomentamos un ambiente colaborativo donde cada idea cuenta, trabajando juntos para superar obstáculos y alcanzar metas ambiciosas.",
+        "about-value-card-excellence": "Excelencia",
+        "about-value-card-excellence-text": "Buscamos la excelencia en todo lo que hacemos, aspirando a los más altos estándares de calidad y rendimiento en la ejecución de cada proyecto.",
+        "about-value-card-customerfocus": "Orientación al Cliente",
+        "about-value-card-customerfocus-text": "Ponemos al cliente en el centro de todo lo que hacemos, escuchando atentamente sus necesidades y deseos para ofrecer soluciones innovadoras y centradas en el usuario.",
+        "about-value-card-responsibility": "Responsabilidad",
+        "about-value-card-responsibility-text": "Asumimos la responsabilidad de nuestras acciones y decisiones, demostrando un compromiso firme con el éxito del equipo y la entrega de resultados sobresalientes.",
         "about-clients-title": "Nuestros Clientes",
         "about-clients-text": ""
     },
 
     "team":{
-      "about-team-title": "Nuestro talentoso equipo",
+      "about-team-title": "Nuestro Talento, Experiencia y Dedicación",
       "about-team-text": "Conoce a los miembros de nuestro equipo que hacen posible todo lo que hacemos."
     },
 

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import './menu.css';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import collabnet from '../../assets/logos/collabnet.png';
+// import collabnet from '../../assets/logos/collabnet.png';
+import packagepilot from '../../assets/logos/PackagePilot-Logo.png'
 
 interface SVGProps {
   width: number;
@@ -41,10 +42,10 @@ const Menu: React.FC = () => {
     <header className="header">
       <div className="container-menu">
         <NavLink to="/" className={`logo ${isOpen ? 'active' : ''}`}>
-          <img className='collabnet-logo' src={collabnet} alt="" />
+          <img className='collabnet-logo' src={packagepilot} alt="" />
         </NavLink>
         <nav className={`nav ${isOpen ? 'open' : ''}`}>
-          <NavLink to="/home" activeClassName="active" className="nav-link" onClick={toggleMenu}>
+          <NavLink to="/" activeClassName="active" className="nav-link" onClick={toggleMenu}>
             {t('header.menu-home')}
           </NavLink>
           <div className="menu-item">
@@ -62,12 +63,6 @@ const Menu: React.FC = () => {
               </div>
             )}
           </div>
-          <NavLink to="/features" activeclassname="active" className="nav-link" onClick={toggleMenu}>
-            {t('header.menu-features')}
-          </NavLink>
-          <NavLink to="/pricing" activeClassname="active" className="nav-link" onClick={toggleMenu}>
-            {t('header.menu-pricing')}
-          </NavLink>
           <NavLink to="/contact" activeclassname="active" className="nav-link" onClick={toggleMenu}>
             {t('header.menu-contact')}
           </NavLink>

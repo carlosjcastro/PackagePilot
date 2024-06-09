@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {ArrowForward } from '@mui/icons-material';
+import packagepilot from '../../assets/logos/PackagePilot-Logo.png'
 import './footer.css';
 
 const Footer: React.FC = () => {
@@ -8,6 +9,7 @@ const Footer: React.FC = () => {
     <div className="footer">
       <div className="footer-container">
         <div className="footer-logo">
+          <img className='logo-footer' src={packagepilot} alt="" title='PackagePilot'/>
           <h1>PackagePilot</h1>
         </div>
         <div className="footer-grid">
@@ -16,13 +18,13 @@ const Footer: React.FC = () => {
             <Link to="/aboutus" className="footer-link">About Us</Link>
             <Link to="/team" className="footer-link">Team</Link>
           </div>
-          <div className="footer-item">
+          {/* <div className="footer-item">
             <div className="footer-title">Productos</div>
             <Link to="/products/product1" className="footer-link">Producto 1</Link>
             <Link to="/products/product2" className="footer-link">Producto 2</Link>
             <Link to="/products/product3" className="footer-link">Producto 3</Link>
             <Link to="/products/product4" className="footer-link">Producto 4</Link>
-          </div>
+          </div> */}
           <div className="footer-item">
             <div className="footer-title">Soporte</div>
             <Link to="/docs" className="footer-link">Documentación</Link>
