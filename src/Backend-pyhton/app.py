@@ -1,59 +1,40 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 import requests
 
 app = Flask(__name__)
+CORS(app)
 
-def search_products(query):
-    url = f'https://api.mercadolibre.com/sites/MLA/search?q={query}'
-    response = requests.get(url)
-    response.raise_for_status()
-    return response.json()
+ACCESS_TOKEN = 'TU_ACCESS_TOKEN'  # Reemplaza con tu access token
 
-def get_product_details(product_id):
-    url = f'https://api.mercadolibre.com/items/{product_id}'
-    response = requests.get(url)
-    response.raise_for_status()
-    return response.json()
+@app.route('/api/product/<product_id>', methods=['GET'])
+def get_product_shipping_info(product_id):
+    product_url = f'https://api.mercadolibre.com/items/{product_id}?access_token={ACCESS_TOKEN}'
+    
+    response = requests.get(product_url)
+    
+    if response.status_code == 200:
+        product_data = response.json()
+        shipping_data = product_data.get('shipping', {})
+        dimensions = product_data.get('dimensions', {})
 
-def calculate_shipping_cost(weight, dimensions):
-    base_cost = 10.0
-    cost_per_kg = 2.0
-    cost_per_cm3 = 0.01
-
-    length = dimensions.get('length', 1)
-    width = dimensions.get('width', 1)
-    height = dimensions.get('height', 1)
-
-    weight_cost = weight * cost_per_kg
-    volume_cost = length * width * height * cost_per_cm3
-
-    total_cost = base_cost + weight_cost + volume_cost
-    return total_cost
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-@app.route('/search', methods=['GET'])
-def search():
-    query = request.args.get('query')
-    if not query:
-        return jsonify({'error': 'Query parameter is required'}), 400
-    search_results = search_products(query)
-    return jsonify(search_results)
-
-@app.route('/details/<product_id>', methods=['GET'])
-def details(product_id):
-    product_details = get_product_details(product_id)
-    return jsonify(product_details)
-
-@app.route('/calculate_shipping', methods=['POST'])
-def calculate_shipping():
-    data = request.json
-    weight = data.get('weight', 0)
-    dimensions = data.get('dimensions', {})
-    shipping_cost = calculate_shipping_cost(weight, dimensions)
-    return jsonify({'shipping_cost': shipping_cost})
+        result = {
+            "mode": shipping_data.get('mode', 'N/A'),
+            "local_pick_up": shipping_data.get('local_pick_up', 'N/A'),
+            "free_shipping": shipping_data.get('free_shipping', 'N/A'),
+            "logistic_type": shipping_data.get('logistic_type', 'N/A'),
+            "store_pick_up": shipping_data.get('store_pick_up', 'N/A'),
+            "dimensions": {
+                "weight": dimensions.get('weight', 'N/A'),
+                "width": dimensions.get('width', 'N/A'),
+                "height": dimensions.get('height', 'N/A'),
+                "length": dimensions.get('length', 'N/A')
+            }
+        }
+        
+        return jsonify(result)
+    else:
+        return jsonify({"error": f"Error al obtener los datos del producto: {response.status_code}"}), response.status_code
 
 if __name__ == '__main__':
     app.run(debug=True)
