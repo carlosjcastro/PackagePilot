@@ -18,7 +18,7 @@ const Home: React.FC = () => {
 
             <div className="buttons-container">
    
-              <Link to="contact" className="button-get-started btn-gs">Talk With Us</Link>
+              <Link to="" className="button-get-started btn-gs">Talk With Us</Link>
               <Link to="/shipments" className="button-get-started btn-gs">Get Started</Link>
             </div>
           </div>

@@ -10,6 +10,7 @@ import LogIn from './pages/log-in/LogIn';
 import SignUp from './pages/sign-up/SignUp';
 import Home from './pages/home/Home';
 import Loader from './components/loader-screen/Loader';
+import Shipments from './pages/shipments/Shipments';
 
 const ScrollToTop: React.FC = () => {
   const { pathname } = useLocation();
@@ -37,7 +38,8 @@ const AppContent: React.FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/us" element={<About />} />
         <Route path="/team" element={<Team />} />
-        <Route path="/shipments" element={<Contact />} />
+        <Route path="/ship" element={<Contact />} />
+        <Route path="/shipments" element={<Shipments />} />
         <Route path="/login" element={<LogIn setHideElements={setHideElements} />} />
         <Route path="/signup" element={<SignUp setHideElements={setHideElements} />} />
       </Routes>

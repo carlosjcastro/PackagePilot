@@ -50,7 +50,7 @@
 
     "contact":{
         "contact-title": "Empecemos",
-        "contact-title-form": "Contáctanos ahora!",
+        "contact-title-form": "¡Calcúla tu envío!",
         "contact-label-name": "Nombre",
         "contact-label-email": "Correo electrónico",
         "contact-label-phone": "Número de teléfono",
@@ -61,7 +61,7 @@
           "contact-service": "Servicio"
       },
         "contact-label-message": "Mensaje",
-        "contact-btn-send": "Enviar",
+        "contact-btn-send": "Calcular",
         "errors-required": "Este campo es obligatorio."
       
     }

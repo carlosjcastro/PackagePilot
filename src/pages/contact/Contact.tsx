@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@mui/styles';
-import { TextField, Button, FormControl, InputLabel, Select, MenuItem, FormHelperText } from '@mui/material';
+import { TextField, Button } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
+import axios from 'axios';
 import './contact.css';
 
 const useStyles = makeStyles((theme) => ({
@@ -15,26 +16,36 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+interface ShippingInfo {
+  mode: string;
+  local_pick_up: boolean;
+  free_shipping: boolean;
+  logistic_type: string;
+  store_pick_up: boolean;
+  dimensions: {
+    weight: string;
+    width: string;
+    height: string;
+    length: string;
+  };
+}
+
 const Contact: React.FC = () => {
   const { t, i18n } = useTranslation("global");
   const classes = useStyles();
   const [formData, setFormData] = useState({
-
     weight: '',
     length: '',
     width: '',
     height: '',
-    // Campos existentes
-    firstName: '',
     lastName: '',
-    email: '',
-    phoneNumber: '',
-    contactMethod: '',
-    lookingFor: '',
-    message: '',
   });
   const [errors, setErrors] = useState<any>({});
   const [translatedErrors, setTranslatedErrors] = useState<any>({});
+  const [productInfo, setProductInfo] = useState<any>(null); // Estado para almacenar la información del producto
+  const [productId, setProductId] = useState('');
+  const [shippingInfo, setShippingInfo] = useState<ShippingInfo | null>(null);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const updateTranslatedErrors = () => {
@@ -57,15 +68,6 @@ const Contact: React.FC = () => {
     validateField(name, value);
   };
 
-  const handleSelectChange = (event: any) => {
-    const { name, value } = event.target;
-    setFormData({
-      ...formData,
-      [name]: value as string,
-    });
-    validateField(name, value);
-  };
-
   const validateField = (name: string, value: string) => {
     setErrors((prevErrors: any) => {
       const newErrors = { ...prevErrors };
@@ -78,22 +80,68 @@ const Contact: React.FC = () => {
     });
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    console.log('Form data:', formData);
     event.preventDefault();
     let formIsValid = true;
     const newErrors: any = {};
-
+  
     Object.keys(formData).forEach((key) => {
       if (!formData[key as keyof typeof formData]) {
         newErrors[key] = 'required';
         formIsValid = false;
       }
     });
-
+  
     if (formIsValid) {
-      console.log('Form submitted:', formData);
+      try {
+        const weightNumber = parseFloat(formData.weight);
+        const lengthNumber = parseFloat(formData.length);
+        const widthNumber = parseFloat(formData.width);
+        const heightNumber = parseFloat(formData.height);
+        const response = await fetch('http://127.0.0.1:5000/calculate_shipping', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Origin': 'http://localhost:5173'
+          },
+          body: JSON.stringify({ ...formData, weight: weightNumber, length: lengthNumber, width: widthNumber, height: heightNumber })
+        });
+  
+        if (response.ok) {
+          const data = await response.json();
+          console.log('Shipping cost:', data.shipping_cost);
+          // Verificar si se devuelve el ID del producto correctamente
+          if (data.product_id) {
+            const productResponse = await fetch(`http://127.0.0.1:5000/details/${data.product_id}`);
+            if (productResponse.ok) {
+              const productData = await productResponse.json();
+              setProductInfo(productData);
+            } else {
+              console.error('Failed to fetch product details');
+            }
+          } else {
+            console.error('No product ID found in response');
+          }
+        } else {
+          console.error('Failed to calculate shipping cost');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+      }
     } else {
       setErrors(newErrors);
+    }
+  };
+
+  const fetchProductInfo = async () => {
+    try {
+      const response = await axios.get(`http://localhost:5000/api/product/${productId}`);
+      setShippingInfo(response.data);
+      setError('');
+    } catch (err) {
+      setError('Error al obtener los datos del producto.');
+      setShippingInfo(null);
     }
   };
 
@@ -106,7 +154,7 @@ const Contact: React.FC = () => {
       <h2 className='title-contact' data-aos="fade-right">{t("contact.contact-title")}</h2>
       <div className="contact-container" data-aos="fade-down">
         <div className="form-container">
-          <form onSubmit={handleSubmit} method="POST">
+          <form onSubmit={handleSubmit} method="POST" action="/calculate_shipping">
             {/* Campos existentes */}
             <TextField
               id="last-name"

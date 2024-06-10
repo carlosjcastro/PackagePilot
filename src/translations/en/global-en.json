@@ -48,7 +48,7 @@
 
 "contact":{
   "contact-title": "Let's Get Started!",
-  "contact-title-form": "Contact Us Now!",
+  "contact-title-form": "Calculate your ship!",
   "contact-label-name": "Name",
   "contact-label-email": "Email",
   "contact-label-phone": "Phone Number",
@@ -59,7 +59,7 @@
   },
   "contact-label-subject": "Looking for",
   "contact-label-message": "Message",
-  "contact-btn-send": "Send",
+  "contact-btn-send": "Calculate",
   "errors-required": "This field is required."
   }
 }
