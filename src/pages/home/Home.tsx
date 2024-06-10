@@ -4,12 +4,14 @@ import { Link } from 'react-router-dom';
 import robot from '../../assets/img/robot.png';
 import TestimonialsCards from './testimonials/TestimonialsCards';
 import { useTranslation } from 'react-i18next';
-
+import client1 from '../../assets/logos/microsoft.png';
+import client2 from '../../assets/logos/cf.png';
 
 const Home: React.FC = () => {
   const { t, i18n } = useTranslation("global");
   return (
     <div>
+      {/* Hero */}
       <section className='welcome-web content-center content-app'>
         <div className="welcome-content">
           <div className="text-content">
@@ -17,14 +19,13 @@ const Home: React.FC = () => {
             <p>{t("home.hero-description")}</p>
 
             <div className="buttons-container">
-   
-              <Link to="" className="button-get-started btn-gs">Talk With Us</Link>
-              <Link to="/shipments" className="button-get-started btn-gs">Get Started</Link>
+              <Link to="" className="button-get-started btn-gs">{t("home.hero-btn-twu")}</Link>
+              <Link to="/shipments" className="button-get-started btn-gs">{t("home.hero-btn-gs")}</Link>
             </div>
           </div>
         </div>
         <div className="image-content">
-          <img src={robot} alt="Imagen de CollabNet" />
+          <img src={robot} alt="PackagePilot" />
         </div>
       </section>
 
@@ -49,9 +50,19 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* Testimonials */}
       <section className='testimonials content-center content-app'>
-        <h2>¿De qué hablan nuestros clientes?</h2>
+        <h2>{t("home.testimonials.testimonial-title")}</h2>
         <TestimonialsCards />
+      </section>
+
+      {/* Our Clients */}
+      <section className='our-clients content-center content-app'>
+        <h2>{t("home.our-clients-title")}</h2>
+        <div className="clients-container">
+          <a href="https://www.microsoft.com/" target="_blank" rel="noopener noreferrer"><img src={client1} alt="Microsoft" title='Microsoft' /></a>
+          <a href="https://codigofacilito.com/" target="_blank" rel="noopener noreferrer"><img src={client2} alt="Código Facilito" title='Código Facilito' /></a>
+        </div>
       </section>
     </div>
   );

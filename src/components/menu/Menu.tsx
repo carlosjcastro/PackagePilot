@@ -40,6 +40,7 @@ const Menu: React.FC = () => {
 
   return (
     <header className="header">
+      {/* Menu */}
       <div className="container-menu">
         <NavLink to="/" className={`logo ${isOpen ? 'active' : ''}`}>
           <img className='collabnet-logo' src={packagepilot} alt="" />
@@ -68,14 +69,14 @@ const Menu: React.FC = () => {
           </NavLink>
         </nav>
 
+        {/* Language */}
         <div className="actions">
         <NavLink to="/login" className="btn" onClick={toggleMenu}>
-            Log In
+            {t("header.menu-login")}
           </NavLink>
           <NavLink to="/signup"  className="btn btn btn-secondary" onClick={toggleMenu}>
-            Get Started
+            {t("header.menu-signup")}
           </NavLink>
-          {/* Botón de cambio de idioma */}
           <div className="translation">
             <button className={language === 'es' ? "actived" : ""} onClick={toggleLanguage}>
               <div className="button-content">
@@ -87,6 +88,7 @@ const Menu: React.FC = () => {
           </div>
         </div>
 
+        {/* Responsive Menu */}
         <button className={`menu-toggle ${isOpen ? 'open' : ''}`} onClick={toggleMenu}>
           <div className="bar"></div>
           <div className="bar"></div>

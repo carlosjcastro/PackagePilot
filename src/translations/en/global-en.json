@@ -5,18 +5,37 @@
   "menu-about": "About",
   "menu-aboutUs": "Us",
   "menu-ourTeam": "Our Team",
-  "menu-contact": "Shipments"
+  "menu-contact": "Shipments",
+  "menu-login": "Log In",
+  "menu-signup": "Sign Up"
 },
+
+
+"footer":{
+  "footer-company": "Company",
+  "social-media": "Social Media",
+  "all-rights-reserved": "All Rights Reserved."
+},
+
 
 "home":{
   "hero-description": "Sailing together towards a future of more efficient shipments: Connecting ideas, resources, and talents to build a better tomorrow.",
+  "hero-btn-twu": "Talk with Us!",
+  "hero-btn-gs": "Get Started",
   "whatweprovide-title": "What We Provide?",
   "wwp-access-title": "Centralized Access",
   "wwp-access-text": "Efficiently connect teams and ideas to foster innovation.",
   "wwp-security-title": "100% Security",
   "wwp-security-text": "Expand your reach and influence within our extensive network.",
   "wwp-intelligence-title": "Intelligent Analysis",
-  "wwp-intelligence-text": "Forge meaningful relationships that drive mutual success."
+  "wwp-intelligence-text": "Forge meaningful relationships that drive mutual success.",
+  "testimonials":{
+    "testimonial-title": "What are our clients talking about?",
+    "testimonial-card-one": "'PackagePilot has transformed the way we manage our shipments. Highly recommended!'",
+    "testimonial-card-two": "'The customer service of the PackagePilot team is exceptional. We couldn't be more satisfied.'",
+    "testimonial-card-three": "'Thanks to PackagePilot, our logistics operations are more efficient than ever.'"
+  },
+  "our-clients-title": "Our Clients"
 },
 
 "about":{
@@ -61,5 +80,13 @@
   "contact-label-message": "Message",
   "contact-btn-send": "Calculate",
   "errors-required": "This field is required."
+  },
+
+  "login":{
+    "login-title": "Welcome back!",
+    "login-input-email": "Email",
+    "login-input-password": "Password"
   }
+
 }
+

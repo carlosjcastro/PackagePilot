@@ -41,24 +41,24 @@
     font-style: oblique;
   }
   
-  /* Media queries para hacer responsivo el diseño */
+/* Medias */
   @media (max-width: 1200px) {
     .testimonial {
-      width: calc(50% - 40px); /* Dos tarjetas por fila en pantallas medianas */
+      width: calc(50% - 40px);
     }
   }
   
   @media (max-width: 768px) {
     .testimonial {
-      width: calc(100% - 20px); /* Una tarjeta por fila en pantallas pequeñas */
+      width: calc(100% - 20px);
     }
   
     .testimonial h3 {
-      font-size: 1.5rem; /* Ajuste del tamaño del texto en pantallas pequeñas */
+      font-size: 1.5rem;
     }
   
     .testimonial p {
-      font-size: 1rem; /* Ajuste del tamaño del texto en pantallas pequeñas */
+      font-size: 1rem;
     }
   }
   

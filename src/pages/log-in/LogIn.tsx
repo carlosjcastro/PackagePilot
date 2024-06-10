@@ -4,9 +4,11 @@ import { motion } from 'framer-motion';
 import { TextField, Button } from '@mui/material';
 import './login.css';
 import loginImage from '../../assets/img/login-image.jpeg';
-// import GoogleLoginButton from './google-btn/GoogleLogInButton';
+import { useTranslation } from 'react-i18next';
 
 const LogIn: React.FC<{ setHideElements: (hide: boolean) => void }> = ({ setHideElements }) => {
+const { t } = useTranslation();
+
   useEffect(() => {
     setHideElements(true);
     return () => setHideElements(false);
@@ -40,8 +42,8 @@ const LogIn: React.FC<{ setHideElements: (hide: boolean) => void }> = ({ setHide
     }
     console.log('Formulario enviado:', formData);
   };
-
   return (
+
     <div className="login-container">
       <Link to="/" className="back-button"><i className='bx bxs-left-arrow-circle arrow-return'></i></Link>
       <div className="login-left">
@@ -99,15 +101,6 @@ const LogIn: React.FC<{ setHideElements: (hide: boolean) => void }> = ({ setHide
               </Button>
             </motion.div>
           </form>
-          {/* <div className="or-container">
-            <div className="or-divider"></div>
-            <p className="or-text">OR</p>
-            <div className="or-divider"></div>
-          </div> */}
-          {/* <GoogleLoginButton />
-          <Button className="login-button login-btn-sn">
-            Sign in with Facebook
-          </Button> */}
         </motion.div>
       </div>
       <div className="login-right">

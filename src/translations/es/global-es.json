@@ -5,18 +5,35 @@
       "menu-about": "Sobre",
       "menu-aboutUs": "Nosotros",
       "menu-ourTeam": "El equipo",
-      "menu-contact": "Envíos"
+      "menu-contact": "Envíos",
+      "menu-login": "Iniciar sesión",
+      "menu-signup": "Registrarse"
+    },
+
+    "footer":{
+        "footer-company": "Empresa",
+        "social-media": "Redes sociales",
+        "all-rights-reserved": "Todos los derechos reservados."
     },
 
     "home":{
       "hero-description": "Navegando juntos hacia un futuro de envíos más eficientes: Conectando ideas, recursos y talentos para construir un mañana mejor.",
+        "hero-btn-twu": "Habla con nosotros!",
+        "hero-btn-gs": "Empezar",
         "whatweprovide-title": "¿Qué brindamos?",
         "wwp-access-title": "Acceso Centralizado",
         "wwp-access-text": "Efficiently connect teams and ideas to foster innovation.",
         "wwp-security-title": "100% Seguridad",
         "wwp-security-text": "Expand your reach and influence within our extensive network.",
         "wwp-intelligence-title": "Análisis Inteligente",
-        "wwp-intelligence-text": "Forge meaningful relationships that drive mutual success."
+        "wwp-intelligence-text": "Forge meaningful relationships that drive mutual success.",
+        "testimonials":{
+          "testimonial-title": "¿De qué están hablando nuestros clientes?",
+          "testimonial-card-one": "'PackagePilot ha transformado la manera en que gestionamos nuestros envíos. ¡Altamente recomendado!'",
+          "testimonial-card-two": "'La atención del equipo de PackagePilot es excepcional. No podríamos estar más satisfechos.'",
+          "testimonial-card-three": "'Gracias a PackagePilot, nuestras operaciones logísticas son más eficientes que nunca.'"
+        },
+        "our-clients-title": "Nuestros clientes"
 },
 
     "about":{
@@ -63,7 +80,13 @@
         "contact-label-message": "Mensaje",
         "contact-btn-send": "Calcular",
         "errors-required": "Este campo es obligatorio."
-      
+    },
+
+    "login":{
+      "login-title": "Bienvenido de vuelta!",
+      "login-input-email": "Correo electrónico",
+      "login-input-password": "Contraseña"
     }
     
+
     }
