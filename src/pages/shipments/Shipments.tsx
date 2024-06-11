@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './shipments.css';
 import { useTranslation } from 'react-i18next';
+import { motion } from 'framer-motion';
 
 interface ShippingInfo {
   mode: string;
@@ -42,14 +43,19 @@ const Shipments: React.FC = () => {
   };
 
   useEffect(() => {
-    // Actualiza el mensaje de error si hay uno y cambia el idioma
     if (error) {
       setError(t("shipments.shipment-error"));
     }
   }, [i18n.language]);
 
   return (
-    <div className="shipments-container">
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -50 }}
+      transition={{ duration: 0.5 }}
+      className="shipments-container"
+    >
       <h2 className='shipments-title'>{t("shipments.shipment-title")}</h2>
       <input
         type="text"
@@ -58,12 +64,24 @@ const Shipments: React.FC = () => {
         placeholder={t("shipments.shipment-place")}
         className="input"
       />
-      <button onClick={fetchProductInfo} className="shipments-button">{t("shipments.shipment-button")}</button>
+      <motion.button
+        whileHover={{ scale: 1.1 }}
+        whileTap={{ scale: 0.9 }}
+        onClick={fetchProductInfo}
+        className="shipments-button"
+      >
+        {t("shipments.shipment-button")}
+      </motion.button>
 
       {error && <p className="error">{error}</p>}
       
       {shippingInfo && shippingInfo.dimensions && (
-        <div className="shipping-info">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="shipping-info"
+        >
           <h2>{t("shipments.shipping-info")}</h2>
           <p>{t("shipments.mode")}: {shippingInfo.mode}</p>
           <p>{t("shipments.local-pick-up")}: {shippingInfo.local_pick_up ? t("yes") : t("no")}</p>
@@ -75,9 +93,9 @@ const Shipments: React.FC = () => {
           <p>{t("shipments.width")}: {shippingInfo.dimensions.width} cm</p>
           <p>{t("shipments.height")}: {shippingInfo.dimensions.height} cm</p>
           <p>{t("shipments.length")}: {shippingInfo.dimensions.length} cm</p>
-        </div>
+        </motion.div>
       )}
-    </div>
+    </motion.div>
   );
 };
 

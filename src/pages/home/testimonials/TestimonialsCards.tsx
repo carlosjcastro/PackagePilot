@@ -3,6 +3,7 @@ import testimonial1 from '../../../assets/img/people-testimonial-1.png';
 import testimonial2 from '../../../assets/img/people-testimonial-2.png';
 import testimonial3 from '../../../assets/img/people-testimonial-3.png';
 import { useTranslation } from 'react-i18next';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const TestimonialsCards = () => {
   const { t } = useTranslation("global");
@@ -27,13 +28,21 @@ const TestimonialsCards = () => {
 
   return (
     <div className='testimonials-container'>
-      {testimonialsData.map((testimonial, index) => (
-        <div key={index} className='testimonial'>
-          <img src={testimonial.photo} alt={`Image ${testimonial.name}`} />
-          <h3>{testimonial.name}</h3>
-          <p>{testimonial.testimonial}</p>
-        </div>
-      ))}
+      <AnimatePresence>
+        {testimonialsData.map((testimonial, index) => (
+          <motion.div 
+            key={index} 
+            className='testimonial'
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            transition={{ duration: 0.5, delay: index * 0.3 }}>
+            <img src={testimonial.photo} alt={`Image ${testimonial.name}`} />
+            <h3>{testimonial.name}</h3>
+            <p>{testimonial.testimonial}</p>
+          </motion.div>
+        ))}
+      </AnimatePresence>
     </div>
   );
 }

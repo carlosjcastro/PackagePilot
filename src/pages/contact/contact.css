@@ -1,4 +1,4 @@
-.title-contact{
+.title-contact {
   font-size: 5rem;
   font-weight: 900;
   text-align: center;
@@ -9,17 +9,17 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  background-color: rgb(9, 151, 124, 0.0.1);
+  background-color: rgba(9, 151, 124, 0.1);
   border-radius: 15px;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.6);
   max-width: 1200px;
   margin: 20px auto;
   align-items: stretch;
-  background-color: rgb(11, 10, 12, 0.2);
-  
+  background-color: rgba(11, 10, 12, 0.2);
 }
 
-.form-container, .info-container {
+.form-container,
+.info-container {
   padding: 20px;
 }
 
@@ -27,22 +27,20 @@
   flex: 3;
   border-radius: 15px 0 0 15px;
   padding: 60px;
-  
 }
 
 .info-container {
   flex: 1.5;
-  background-color: #33BBCF;
+  background-color: #33bbcF;
   text-align: left;
   display: flex;
   flex-direction: column;
   justify-content: center;
   border-top-right-radius: 15px;
   border-bottom-right-radius: 15px;
-  
 }
 
-.info-container h2{
+.info-container h2 {
   font-size: 3rem;
   font-weight: 900;
 }
@@ -78,8 +76,9 @@
 }
 
 /* MUI Styles */
+
 .MuiButton-root.custom-button {
-  background-color: #33BBCF;
+  background-color: #33bbcF;
   color: white;
   border: none;
   padding: 10px 90px;
@@ -97,7 +96,6 @@
   width: 100%;
 }
 
-
 .input-white .MuiOutlinedInput-root {
   color: white;
   border-color: white;
@@ -112,7 +110,7 @@
 }
 
 .input-white .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
-  border-color: #33BBCF;
+  border-color: #33bbcF;
 }
 
 .input-white .MuiOutlinedInput-root {
@@ -132,14 +130,23 @@
   border-color: #e5e5e5;
 }
 
+/* Media Queries */
+
 @media (max-width: 768px) {
+  .title-contact {
+    font-size: 3rem;
+    min-height: auto;
+    margin-bottom: 1rem;
+  }
+
   .contact-container {
     flex-direction: column;
     padding: 20px;
     margin: 5px;
   }
 
-  .form-container, .info-container {
+  .form-container,
+  .info-container {
     margin: 10px;
     padding: 20px;
     border-radius: 15px;
@@ -159,14 +166,17 @@
 }
 
 @media (max-width: 480px) {
+  .title-contact {
+    font-size: 2rem;
+  }
+
   .contact-container {
     padding: 10px;
     margin: 5px;
   }
 
-  .form-container, .info-container {
+  .form-container,
+  .info-container {
     margin: 5px;
-
   }
 }
-
