@@ -38,8 +38,8 @@ const AppContent: React.FC = () => {
         <Route path="/" element={<Home />} />
         <Route path="/us" element={<About />} />
         <Route path="/team" element={<Team />} />
-        <Route path="/ship" element={<Contact />} />
         <Route path="/shipments" element={<Shipments />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="/login" element={<LogIn setHideElements={setHideElements} />} />
         <Route path="/signup" element={<SignUp setHideElements={setHideElements} />} />
       </Routes>

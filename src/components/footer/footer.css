@@ -1,11 +1,11 @@
 .footer {
-    background-color: rgba(0, 0, 0, 0.2); /* Color de fondo con transparencia */
-    backdrop-filter: blur(180px); /* Desenfoque del fondo */
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(180px);
     padding: 30px;
-    margin-top: 40px;
+    margin-top: 5rem;
     border-top-right-radius: 15px;
     border-top-left-radius: 15px;
-    position: relative; /* Asegura que los pseudo-elementos estén posicionados con respecto a este elemento */
+    position: relative;
 }
 
 
@@ -47,6 +47,11 @@
     margin-left: -4px; /* Ajuste para eliminar el espacio */
 }
 
+.footer-link:hover{
+    text-decoration: underline;
+    color: #33BBCF;
+}
+
 .footer-link:hover {
     text-decoration: none;
 }
@@ -73,3 +78,6 @@
     background-color: #e5e5e5;
 }
 
+.footer-bottom a{
+    color: #33BBCF;
+}

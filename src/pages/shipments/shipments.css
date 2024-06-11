@@ -1,0 +1,87 @@
+.shipments-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 90vh;
+  }
+  
+  .shipments-title {
+    margin-bottom: 2rem; 
+    font-weight: 900;
+    font-size: 5rem;
+    text-align: center;
+  }
+
+  .input {
+    padding: 20px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    width: 500px;
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  .shipments-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #e5e5e5;
+    background-color: #33BBCF;
+  }
+  
+  .shipments-button:hover {
+    color: #010b15;
+    background-color: #2ca1b3;
+  }
+  
+  .error {
+    color: #ef233c;
+    margin-top: 20px;
+  }
+  
+  .error::selection {
+    color: #e5e5e5;
+    background-color: #ef233c;
+  }
+  
+  .shipping-info {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  /* Media Queries */
+  
+  /* Tablets */
+  @media (max-width: 768px) {
+    .input {
+      width: 80%;
+      font-size: 14px;
+    }
+  
+    .shipments-button {
+      font-size: 14px;
+    }
+  }
+  
+  /* Mobile Devices */
+  @media (max-width: 480px) {
+    .input {
+      width: 90%;
+      padding: 15px;
+      font-size: 14px;
+    }
+  
+    .shipments-button {
+      font-size: 14px;
+      padding: 10px 15px;
+    }
+  
+    .shipping-info {
+      text-align: left;
+    }
+  }
+  

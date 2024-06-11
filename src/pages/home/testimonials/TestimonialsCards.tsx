@@ -1,8 +1,7 @@
-import React from 'react';
 import './testimonials-cards.css';
-import testimonial1 from '../../../assets/img/people-testimonial-1.svg';
-import testimonial2 from '../../../assets/img/people-testimonial-2.svg';
-import testimonial3 from '../../../assets/img/people-testimonial-3.svg';
+import testimonial1 from '../../../assets/img/people-testimonial-1.png';
+import testimonial2 from '../../../assets/img/people-testimonial-2.png';
+import testimonial3 from '../../../assets/img/people-testimonial-3.png';
 import { useTranslation } from 'react-i18next';
 
 const TestimonialsCards = () => {

@@ -5,7 +5,8 @@
       "menu-about": "Sobre",
       "menu-aboutUs": "Nosotros",
       "menu-ourTeam": "El equipo",
-      "menu-contact": "Envíos",
+      "menu-shipments": "Envíos",
+      "menu-contact": "Contacto",
       "menu-login": "Iniciar sesión",
       "menu-signup": "Registrarse"
     },
@@ -13,7 +14,7 @@
     "footer":{
         "footer-company": "Empresa",
         "social-media": "Redes sociales",
-        "all-rights-reserved": "Todos los derechos reservados."
+        "all-rights-reserved": "Diseño y creación ORIGINAL por Carlos José Castro Galante y Liliana Beatriz Escobar. Todos los derechos reservados."
     },
 
     "home":{
@@ -33,7 +34,7 @@
           "testimonial-card-two": "'La atención del equipo de PackagePilot es excepcional. No podríamos estar más satisfechos.'",
           "testimonial-card-three": "'Gracias a PackagePilot, nuestras operaciones logísticas son más eficientes que nunca.'"
         },
-        "our-clients-title": "Nuestros clientes"
+        "our-clients-title": "Nuestros socios"
 },
 
     "about":{
@@ -67,8 +68,9 @@
 
     "contact":{
         "contact-title": "Empecemos",
-        "contact-title-form": "¡Calcúla tu envío!",
+        "contact-title-form": "¡Contáctanos ahora!",
         "contact-label-name": "Nombre",
+        "contact-label-lastname": "Apellido",
         "contact-label-email": "Correo electrónico",
         "contact-label-phone": "Número de teléfono",
         "contact-label-subject": "Buscando",
@@ -78,8 +80,15 @@
           "contact-service": "Servicio"
       },
         "contact-label-message": "Mensaje",
-        "contact-btn-send": "Calcular",
+        "contact-btn-send": "Enviar",
         "errors-required": "Este campo es obligatorio."
+    },
+
+    "shipments":{
+      "shipment-title": "¡Buscá tu producto!",
+      "shipment-place": "Ingrese el ID del producto",
+      "shipment-button": "Buscar",
+      "shipment-error": "Error al obtener los datos el producto."
     },
 
     "login":{
@@ -87,6 +96,4 @@
       "login-input-email": "Correo electrónico",
       "login-input-password": "Contraseña"
     }
-    
-
-    }
+}

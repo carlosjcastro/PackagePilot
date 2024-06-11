@@ -77,22 +77,6 @@
   resize: none;
 }
 
-.social-icons {
-  margin-top: 30px;
-}
-
-.social-icons a {
-  color: #fff;
-  margin-right: 15px;
-  text-decoration: none;
-  font-size: 24px;
-}
-
-.social-icons a:hover {
-  color: #dcdcdc;
-}
-
-
 /* MUI Styles */
 .MuiButton-root.custom-button {
   background-color: #33BBCF;
@@ -119,11 +103,9 @@
   border-color: white;
 }
 
-
 .input-white .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline {
   border-color: white;
 }
-
 
 .input-white .MuiInputLabel-outlined {
   color: white;
@@ -149,7 +131,6 @@
 .input-white .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
   border-color: #e5e5e5;
 }
-
 
 @media (max-width: 768px) {
   .contact-container {

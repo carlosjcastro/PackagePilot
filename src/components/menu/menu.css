@@ -112,6 +112,7 @@
   font-size: 14px;
   padding: 0 8px;
   overflow: hidden;
+  background-color: #e5e5e5;
 }
 
 /* Estilos para el texto */
@@ -123,7 +124,7 @@
 .translation button .button-content .en-text,
 .translation button .button-content .es-text {
   font-weight: bold;
-  color: #e5e5e5;
+  color: #010b15;
   text-transform: uppercase;
   margin: 0;
   padding: 0;
@@ -141,7 +142,6 @@
   margin-right: 2px;
 }
 
-/* Indicador visual */
 .translation button .indicator {
   width: 14px;
   height: 14px;

@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './shipments.css';
+import { useTranslation } from 'react-i18next';
 
 interface ShippingInfo {
   mode: string;
@@ -16,58 +18,67 @@ interface ShippingInfo {
 }
 
 const Shipments: React.FC = () => {
-    const [productId, setProductId] = useState('');
-    const [shippingInfo, setShippingInfo] = useState<ShippingInfo | null>(null);
-    const [error, setError] = useState('');
-  
-    const fetchProductInfo = async () => {
-      try {
-        console.log('Fetching product info for product ID:', productId);
-        const response = await axios.get(`http://localhost:5173/shipments/${productId}`, {
-          headers: {
-            'Accept': 'application/json'
-          }
-        });
-        console.log('Response received:', response); // Aquí
-        setShippingInfo(response.data);
-        setError('');
-      } catch (err) {
-        console.error('Error fetching product info:', err);
-        setError('Error al obtener los datos del producto.');
-        setShippingInfo(null);
-      }
-    };
-  
-    return (
-      <div>
-        <input
-          type="text"
-          value={productId}
-          onChange={(e) => setProductId(e.target.value)}
-          placeholder="Ingrese el ID del producto"
-        />
-        <button onClick={fetchProductInfo}>Buscar</button>
-  
-        {error && <p>{error}</p>}
-        
-        {shippingInfo && shippingInfo.dimensions && (
-          <div>
-            <h2>Información de Envío:</h2>
-            <p>Modo de Envío: {shippingInfo.mode}</p>
-            <p>Local Pick-Up: {shippingInfo.local_pick_up ? 'Sí' : 'No'}</p>
-            <p>Gratis: {shippingInfo.free_shipping ? 'Sí' : 'No'}</p>
-            <p>Logística: {shippingInfo.logistic_type}</p>
-            <p>Store Pick-Up: {shippingInfo.store_pick_up ? 'Sí' : 'No'}</p>
-            <h3>Dimensiones del Producto:</h3>
-            <p>Peso: {shippingInfo.dimensions.weight} g</p>
-            <p>Ancho: {shippingInfo.dimensions.width} cm</p>
-            <p>Altura: {shippingInfo.dimensions.height} cm</p>
-            <p>Largo: {shippingInfo.dimensions.length} cm</p>
-          </div>
-        )}
-      </div>
-    );
+  const { t, i18n } = useTranslation("global");
+  const [productId, setProductId] = useState('');
+  const [shippingInfo, setShippingInfo] = useState<ShippingInfo | null>(null);
+  const [error, setError] = useState('');
+
+  const fetchProductInfo = async () => {
+    try {
+      console.log('Fetching product info for product ID:', productId);
+      const response = await axios.get(`http://localhost:5173/shipments/${productId}`, {
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+      console.log('Response received:', response);
+      setShippingInfo(response.data);
+      setError('');
+    } catch (err) {
+      console.error('Error fetching product info:', err);
+      setError(t("shipments.shipment-error"));
+      setShippingInfo(null);
+    }
   };
-  
-  export default Shipments;
-  
+
+  useEffect(() => {
+    // Actualiza el mensaje de error si hay uno y cambia el idioma
+    if (error) {
+      setError(t("shipments.shipment-error"));
+    }
+  }, [i18n.language]);
+
+  return (
+    <div className="shipments-container">
+      <h2 className='shipments-title'>{t("shipments.shipment-title")}</h2>
+      <input
+        type="text"
+        value={productId}
+        onChange={(e) => setProductId(e.target.value)}
+        placeholder={t("shipments.shipment-place")}
+        className="input"
+      />
+      <button onClick={fetchProductInfo} className="shipments-button">{t("shipments.shipment-button")}</button>
+
+      {error && <p className="error">{error}</p>}
+      
+      {shippingInfo && shippingInfo.dimensions && (
+        <div className="shipping-info">
+          <h2>{t("shipments.shipping-info")}</h2>
+          <p>{t("shipments.mode")}: {shippingInfo.mode}</p>
+          <p>{t("shipments.local-pick-up")}: {shippingInfo.local_pick_up ? t("yes") : t("no")}</p>
+          <p>{t("shipments.free-shipping")}: {shippingInfo.free_shipping ? t("yes") : t("no")}</p>
+          <p>{t("shipments.logistic-type")}: {shippingInfo.logistic_type}</p>
+          <p>{t("shipments.store-pick-up")}: {shippingInfo.store_pick_up ? t("yes") : t("no")}</p>
+          <h3>{t("shipments.product-dimensions")}</h3>
+          <p>{t("shipments.weight")}: {shippingInfo.dimensions.weight} g</p>
+          <p>{t("shipments.width")}: {shippingInfo.dimensions.width} cm</p>
+          <p>{t("shipments.height")}: {shippingInfo.dimensions.height} cm</p>
+          <p>{t("shipments.length")}: {shippingInfo.dimensions.length} cm</p>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Shipments;

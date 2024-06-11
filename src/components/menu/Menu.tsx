@@ -65,6 +65,9 @@ const Menu: React.FC = () => {
             )}
           </div>
           <NavLink to="/shipments" activeclassname="active" className="nav-link" onClick={toggleMenu}>
+            {t('header.menu-shipments')}
+          </NavLink>
+          <NavLink to="/contact" activeclassname="active" className="nav-link" onClick={toggleMenu}>
             {t('header.menu-contact')}
           </NavLink>
         </nav>

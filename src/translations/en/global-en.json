@@ -5,7 +5,8 @@
   "menu-about": "About",
   "menu-aboutUs": "Us",
   "menu-ourTeam": "Our Team",
-  "menu-contact": "Shipments",
+  "menu-shipments": "Shipments",
+  "menu-contact": "Contact",
   "menu-login": "Log In",
   "menu-signup": "Sign Up"
 },
@@ -14,7 +15,7 @@
 "footer":{
   "footer-company": "Company",
   "social-media": "Social Media",
-  "all-rights-reserved": "All Rights Reserved."
+  "all-rights-reserved": "ORIGINAL design and creation by Carlos José Castro Galante and Liliana Beatriz Escobar. All Rights Reserved."
 },
 
 
@@ -35,7 +36,7 @@
     "testimonial-card-two": "'The customer service of the PackagePilot team is exceptional. We couldn't be more satisfied.'",
     "testimonial-card-three": "'Thanks to PackagePilot, our logistics operations are more efficient than ever.'"
   },
-  "our-clients-title": "Our Clients"
+  "our-clients-title": "Our Partners"
 },
 
 "about":{
@@ -67,8 +68,9 @@
 
 "contact":{
   "contact-title": "Let's Get Started!",
-  "contact-title-form": "Calculate your ship!",
+  "contact-title-form": "Contact us now!",
   "contact-label-name": "Name",
+  "contact-label-lastname": "Last Name",
   "contact-label-email": "Email",
   "contact-label-phone": "Phone Number",
   "contact-subject":{
@@ -78,8 +80,15 @@
   },
   "contact-label-subject": "Looking for",
   "contact-label-message": "Message",
-  "contact-btn-send": "Calculate",
+  "contact-btn-send": "Send",
   "errors-required": "This field is required."
+  },
+
+  "shipments":{
+    "shipment-title": "Search your product!",
+    "shipment-place": "Enter the product ID",
+    "shipment-button": "Search",
+    "shipment-error": "Error retrieving the product data."
   },
 
   "login":{

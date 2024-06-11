@@ -29,6 +29,9 @@ const Footer: React.FC = () => {
             {t("header.menu-ourTeam")}
             </Link>
             <Link to="/shipments" className="footer-link">
+            {t("header.menu-shipments")}
+            </Link>
+            <Link to="/contact" className="footer-link">
             {t("header.menu-contact")}
             </Link>
           </div>
@@ -60,6 +63,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
         <div className="footer-bottom">
+          <p>Images from <a href="https://www.freepik.es/" target="_blank" rel="noopener noreferrer">FreePik</a>.</p>
           &copy; {new Date().getFullYear()} PackagePilot. {t("footer.all-rights-reserved")}
         </div>
       </div>

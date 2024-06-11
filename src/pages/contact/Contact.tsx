@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@mui/styles';
-import { TextField, Button } from '@mui/material';
+import { TextField, Button, FormControl, InputLabel, Select, MenuItem, FormHelperText } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useTranslation } from 'react-i18next';
-import axios from 'axios';
 import './contact.css';
+import axios from 'axios';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -14,42 +14,31 @@ const useStyles = makeStyles((theme) => ({
   submitButton: {
     marginTop: '2rem',
   },
+  message: {
+    textAlign: 'center',
+    marginTop: '1rem',
+  },
 }));
 
-interface ShippingInfo {
-  mode: string;
-  local_pick_up: boolean;
-  free_shipping: boolean;
-  logistic_type: string;
-  store_pick_up: boolean;
-  dimensions: {
-    weight: string;
-    width: string;
-    height: string;
-    length: string;
-  };
-}
-
-const Contact: React.FC = () => {
+const Contact = () => {
   const { t, i18n } = useTranslation("global");
   const classes = useStyles();
   const [formData, setFormData] = useState({
-    weight: '',
-    length: '',
-    width: '',
-    height: '',
+    firstName: '',
     lastName: '',
+    email: '',
+    phoneNumber: '',
+    contactMethod: '',
+    lookingFor: '',
+    message: '',
   });
-  const [errors, setErrors] = useState<any>({});
-  const [translatedErrors, setTranslatedErrors] = useState<any>({});
-  const [productInfo, setProductInfo] = useState<any>(null); // Estado para almacenar la información del producto
-  const [productId, setProductId] = useState('');
-  const [shippingInfo, setShippingInfo] = useState<ShippingInfo | null>(null);
-  const [error, setError] = useState('');
+  const [errors, setErrors] = useState({});
+  const [translatedErrors, setTranslatedErrors] = useState({});
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
     const updateTranslatedErrors = () => {
-      const newTranslatedErrors: any = {};
+      const newTranslatedErrors = {};
       Object.keys(errors).forEach((key) => {
         newTranslatedErrors[key] = t('contact.errors-required');
       });
@@ -59,7 +48,7 @@ const Contact: React.FC = () => {
     updateTranslatedErrors();
   }, [i18n.language, errors, t]);
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({
       ...formData,
@@ -68,8 +57,17 @@ const Contact: React.FC = () => {
     validateField(name, value);
   };
 
-  const validateField = (name: string, value: string) => {
-    setErrors((prevErrors: any) => {
+  const handleSelectChange = (event) => {
+    const { name, value } = event.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+    validateField(name, value);
+  };
+
+  const validateField = (name, value) => {
+    setErrors((prevErrors) => {
       const newErrors = { ...prevErrors };
       if (!value) {
         newErrors[name] = 'required';
@@ -80,159 +78,143 @@ const Contact: React.FC = () => {
     });
   };
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    console.log('Form data:', formData);
+  const handleSubmit = (event) => {
     event.preventDefault();
     let formIsValid = true;
-    const newErrors: any = {};
+    const newErrors = {};
   
     Object.keys(formData).forEach((key) => {
-      if (!formData[key as keyof typeof formData]) {
+      if (!formData[key]) {
         newErrors[key] = 'required';
         formIsValid = false;
       }
     });
   
     if (formIsValid) {
-      try {
-        const weightNumber = parseFloat(formData.weight);
-        const lengthNumber = parseFloat(formData.length);
-        const widthNumber = parseFloat(formData.width);
-        const heightNumber = parseFloat(formData.height);
-        const response = await fetch('http://127.0.0.1:5000/calculate_shipping', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Origin': 'http://localhost:5173'
-          },
-          body: JSON.stringify({ ...formData, weight: weightNumber, length: lengthNumber, width: widthNumber, height: heightNumber })
-        });
-  
-        if (response.ok) {
-          const data = await response.json();
-          console.log('Shipping cost:', data.shipping_cost);
-          // Verificar si se devuelve el ID del producto correctamente
-          if (data.product_id) {
-            const productResponse = await fetch(`http://127.0.0.1:5000/details/${data.product_id}`);
-            if (productResponse.ok) {
-              const productData = await productResponse.json();
-              setProductInfo(productData);
-            } else {
-              console.error('Failed to fetch product details');
-            }
+      console.log('Form data:', formData);
+      axios.post('/sending.php', formData)
+        .then((response) => {
+          const data = response.data;
+          console.log('Response data:', data);
+          if (data.success) {
+            setMessage('Message sent successfully');
+            setTimeout(() => {
+              setFormData({
+                firstName: '',
+                lastName: '',
+                email: '',
+                phoneNumber: '',
+                contactMethod: '',
+                lookingFor: '',
+                message: '',
+              });
+              setMessage('');
+            }, 1000);
           } else {
-            console.error('No product ID found in response');
+            setMessage('Failed to send message: ' + data.message);
           }
-        } else {
-          console.error('Failed to calculate shipping cost');
-        }
-      } catch (error) {
-        console.error('Error:', error);
-      }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+          setMessage('Error sending message');
+        });
     } else {
       setErrors(newErrors);
     }
   };
 
-  const fetchProductInfo = async () => {
-    try {
-      const response = await axios.get(`http://localhost:5000/api/product/${productId}`);
-      setShippingInfo(response.data);
-      setError('');
-    } catch (err) {
-      setError('Error al obtener los datos del producto.');
-      setShippingInfo(null);
-    }
-  };
-
   const allFieldsValid = () => {
-    return Object.keys(formData).every((key) => formData[key as keyof typeof formData] && !errors[key]);
+    return Object.keys(formData).every((key) => formData[key] && !errors[key]);
   };
 
   return (
     <ThemeProvider theme={createTheme()}>
-      <h2 className='title-contact' data-aos="fade-right">{t("contact.contact-title")}</h2>
-      <div className="contact-container" data-aos="fade-down">
-        <div className="form-container">
-          <form onSubmit={handleSubmit} method="POST" action="/calculate_shipping">
-            {/* Campos existentes */}
-            <TextField
-              id="last-name"
-              name="lastName"
-              label={t('contact.contact-label-name')}
-              variant="outlined"
-              value={formData.lastName}
-              onChange={handleChange}
-              error={!!translatedErrors.lastName}
-              helperText={translatedErrors.lastName}
-              fullWidth
-              className={`input-white ${allFieldsValid() ? 'input-valid' : ''}`}
-            />
-
-            <TextField
-              id="weight"
-              name="weight"
-              label="Weight (kg)"
-              variant="outlined"
-              value={formData.weight}
-              onChange={handleChange}
-              error={!!translatedErrors.weight}
-              helperText={translatedErrors.weight}
-              fullWidth
-              className={`input-white ${allFieldsValid() ? 'input-valid' : ''}`}
-            />
-            <TextField
-              id="length"
-              name="length"
-              label="Length (cm)"
-              variant="outlined"
-              value={formData.length}
-              onChange={handleChange}
-              error={!!translatedErrors.length}
-              helperText={translatedErrors.length}
-              fullWidth
-              className={`input-white ${allFieldsValid() ? 'input-valid' : ''}`}
-            />
-            <TextField
-              id="width"
-              name="width"
-              label="Width (cm)"
-              variant="outlined"
-              value={formData.width}
-              onChange={handleChange}
-              error={!!translatedErrors.width}
-              helperText={translatedErrors.width}
-              fullWidth
-              className={`input-white ${allFieldsValid() ? 'input-valid' : ''}`}
-            />
-            <TextField
-              id="height"
-              name="height"
-              label="Height (cm)"
-              variant="outlined"
-              value={formData.height}
-              onChange={handleChange}
-              error={!!translatedErrors.height}
-              helperText={translatedErrors.height}
-              fullWidth
-              className={`input-white ${allFieldsValid() ? 'input-valid' : ''}`}
-            />
-            {/* Fin de los campos para el cálculo de envío */}
-            <Button
-              type="submit"
-              className={`${classes.submitButton} custom-button`}
+    <h2 className='title-contact' data-aos="fade-right">{t("contact.contact-title")}</h2>
+    <div className="contact-container" data-aos="fade-down">
+      <div className="form-container">
+        <form onSubmit={handleSubmit} method="POST" autoComplete="off" action="/sending.php">
+          <TextField
+            id="first-name"
+            name="firstName"
+            label={t('contact.contact-label-name')}
+            variant="outlined"
+            value={formData.firstName}
+            onChange={handleChange}
+            error={!!translatedErrors.firstName}
+            helperText={translatedErrors.firstName}
+            fullWidth
+            className={`input-white ${allFieldsValid() ? 'input-valid' : ''}`}
+          />
+          <TextField
+            id="last-name"
+            name="lastName"
+            label={t('contact.contact-label-lastname')}
+            variant="outlined"
+            value={formData.lastName}
+            onChange={handleChange}
+            error={!!translatedErrors.lastName}
+            helperText={translatedErrors.lastName}
+            fullWidth
+            className={`input-white ${allFieldsValid() ? 'input-valid' : ''}`}
+          />
+          <TextField
+            id="email"
+            name="email"
+            label={t('contact.contact-label-email')}
+            variant="outlined"
+            value={formData.email}
+            onChange={handleChange}
+            error={!!translatedErrors.email}
+            helperText={translatedErrors.email}
+            fullWidth
+            className={`input-white ${allFieldsValid() ? 'input-valid' : ''}`}
+          />
+          
+          <FormControl variant="outlined" className={`${classes.formControl} input-white ${allFieldsValid() ? 'input-valid' : ''}`} fullWidth error={!!translatedErrors.lookingFor}>
+            <InputLabel id="looking-for-label">{t('contact.contact-label-subject')}</InputLabel>
+            <Select
+              id="looking-for"
+              name="lookingFor"
+              label={t('contact.contact-label-subject')}
+              value={formData.lookingFor}
+              onChange={handleSelectChange}
+              className={classes.selectContainer}
             >
-              {t("contact.contact-btn-send")}
-            </Button>
-          </form>
-        </div>
-        <div className="info-container">
-          <h2>{t("contact.contact-title-form")}</h2>
-          <p>Worldwide</p>
-          <p>contact@packagepilot.com</p>
-        </div>
+              <MenuItem value="">
+                <em>{t("contact.contact-subject.contact-general")}</em>
+              </MenuItem>
+              <MenuItem value="product">{t("contact.contact-subject.contact-product")}</MenuItem>
+              <MenuItem value="service">{t("contact.contact-subject.contact-service")}</MenuItem>
+            </Select>
+            {translatedErrors.lookingFor && <FormHelperText>{translatedErrors.lookingFor}</FormHelperText>}
+          </FormControl>
+          <TextField
+            id="message"
+            name="message"
+            label={t('contact.contact-label-message')}
+            variant="outlined"
+            value={formData.message}
+            onChange={handleChange}
+            error={!!translatedErrors.message}
+            helperText={translatedErrors.message}
+            fullWidth
+            className={`input-white ${allFieldsValid() ? 'input-valid' : ''}`}
+          />
+          <Button
+            type="submit"
+            className={`${classes.submitButton} custom-button`}
+          >
+            {t("contact.contact-btn-send")}
+          </Button>
+          <p className={classes.message}>{message}</p>
+        </form>
       </div>
-    </ThemeProvider>
+      <div className="info-container">
+        <h2>{t("contact.contact-title-form")}</h2>
+      </div>
+    </div>
+  </ThemeProvider>
+  
   );
 };
 
