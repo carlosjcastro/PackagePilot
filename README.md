@@ -1,3 +1,5 @@
+
+![Logo de PackagePilot](src/assets/logos/PackagePilot-Logo.png)
 # PackagePilot
 ### Description:
 
