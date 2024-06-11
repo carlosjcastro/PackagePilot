@@ -60,3 +60,7 @@
 - **Convenience:** Unifies and simplifies the search for shipping rates on a single platform.
 
 With **PackagePilot**, finding the best shipping prices has never been easier and more efficient. Our platform transforms the complex process of searching for shipping options into a simple and accessible experience for everyone.
+
+[Learn more about PackagePilot](https://packagepilot.cjcastrogalante.com/) ❤
+
+© 2024 PackagePilot. ORIGINAL design and creation by Carlos José Castro Galante and Liliana Beatriz Escobar. All Rights Reserved.
