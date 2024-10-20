@@ -20,7 +20,7 @@
     "@mui/icons-material": "^5.15.19",
     "@mui/material": "^5.15.19",
     "@mui/styled-engine-sc": "^6.0.0-alpha.18",
-    "@mui/styles": "^5.15.19",
+    "@mui/styles": "^6.1.4",
     "@mui/system": "^5.15.15",
     "@types/react-router-dom": "^5.3.3",
     "@types/styled-components": "^5.1.34",
